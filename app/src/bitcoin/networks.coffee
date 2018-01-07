@@ -22,6 +22,14 @@ bitcoin.networks.zcash =
   pubKeyHash: 0x1CB8
   scriptHash: 0x1CBD
 
+  bitcoin.networks.zclassic =
+    magicPrefix: '\x16Zclassic Signed Message:\n'
+    bip32:
+      public: 0x0488B21E,
+      private: 0x05358394
+    pubKeyHash: 0x1CB8
+    scriptHash: 0x1CBD
+
 bitcoin.networks.clubcoin =
   magicPrefix: '\x19ClubCoin Signed Message:\n'
   bip32:
@@ -117,6 +125,14 @@ bitcoin.networks.digibyte =
     private: 0x05358394
   pubKeyHash: 30
   scriptHash: 5
+
+  bitcoin.networks.btcprivate =
+    magicPrefix: '\x18BitcoinPrivate Signed Message:\n'
+    bip32:
+      public: 0x0488B21E,
+      private: 0x05358394
+    pubKeyHash: 0
+    scriptHash: 5
 
 ledger.bitcoin ||= {}
 ledger.bitcoin.Networks =
@@ -569,6 +585,81 @@ ledger.bitcoin.Networks =
     bitcoinjs: bitcoin.networks.zcash
     dust: 10000
     handleFeePerByte: no
+
+   zclassic:
+          name: 'zclassic'
+          display_name: 'zclassic'
+          plural: 'zclassic'
+          scheme: 'zclassic:'
+          bolosAppName: 'Zclassic'
+          ticker: 'zcl'
+          tickerKey:
+            from: 'fromZCL'
+            to: 'toZCL'
+          bip44_coin_type: '147'
+          handleSegwit: no
+          isSegwitSupported: no
+          version:
+            regular: 0x1CB8
+            P2SH: 0x1CBD
+            XPUB: 0x0488B21E
+          bitcoinjs: bitcoin.networks.zclassic
+          dust: 10000
+          handleFeePerByte: no
+
+# not tested, verified or ready for prime time
+bitcoin_private_unsplit:
+  name: 'bitcoin_private_unsplit'
+  display_name: 'bitcoin private'
+  chain: 'Bitcoin Private (Main)'
+  bolosAppName: 'Bitcoin Private'
+  plural: 'bitcoin private'
+  ticker: 'btcp'
+  scheme: 'bitcoin private:'
+  tickerKey:
+    from: 'fromBTCP'
+    to: 'toBTCP'
+  bip44_coin_type: '0'
+  handleSegwit: no
+  isSegwitSupported: no
+  version:
+    regular: 0
+    P2SH: 5
+    XPUB: 0x0488B21E
+  bitcoinjs: bitcoin.networks.btcprivate
+  ws_chain: 'bitcoin'
+  dust: 5430
+  handleFeePerByte: yes
+  notCompatible: yes
+  greyed: no
+  message: yes
+
+bitcoin_private_split:
+  name: 'bitcoin_private_split'
+  display_name: 'bitcoin'
+  chain: 'Bitcoin Private (Split)'
+  bolosAppName: 'Bitcoin Private'
+  plural: 'bitcoin private'
+  ticker: 'abc'
+  scheme: 'bitcoin private:'
+  tickerKey:
+    from: 'fromBTCP'
+    to: 'toBTCP'
+  bip44_coin_type: '' # <- needs slip registry https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+  handleSegwit: no
+  isSegwitSupported: no
+  version:
+    regular: 0
+    P2SH: 5
+    XPUB: 0x0488B21E
+  bitcoinjs: bitcoin.networks.btcprivate
+  ws_chain: 'bitcoin'
+  dust: 5430
+  handleFeePerByte: yes
+  notCompatible: yes
+  greyed: yes
+  message: yes
+
 
   clubcoin:
     name: 'clubcoin'

@@ -481,6 +481,21 @@ ledger.preferences.zcash =
         address: 'https://explorer.zcha.in/transactions/%s'
     discoveryGap: 20
 
+ledger.preferences.zclassic =
+      Display:
+        units:
+          bitcoin:
+            symbol: 'ZCL'
+            unit: 8
+
+      # Coin preferences
+      Coin:
+        explorers:
+          zchain:
+            name: 'Zclassicexplorer.com'
+            address: 'http://149.56.129.104/insight/tx/%s'
+        discoveryGap: 20
+
 ledger.preferences.dash =
   Display:
     units:
@@ -670,6 +685,8 @@ ledger.preferences.viacoin =
         address: 'https://prohashing.com/explorer/Viacoin/%s'
     discoveryGap: 20
 
+
+
 ledger.preferences.viacoin_segwit = ledger.preferences.viacoin
 
 ledger.preferences.qtum =
@@ -716,5 +733,25 @@ ledger.preferences.digibyte =
         name: 'digiexplorer'
         address: 'https://digiexplorer.info/tx/%s'
     discoveryGap: 20
+
+
+ledger.preferences.btcprivate =
+      Display:
+        units:
+          bitcoin:
+            symbol: 'BTCP'
+            unit: 8
+          milibitcoin:
+            symbol: 'mBTCP'
+            unit: 5
+
+    # Coin preferences
+    # // todo : no active block explorer for BTCP yet
+      Coin:
+        explorers:
+          cryptoID:
+            name: 'CryptoID'
+            address: 'https://chainz.cryptoid.info/btcp/tx.dws?%s.htm'
+        discoveryGap: 20
 
 ledger.preferences.common.setCoin("bitcoin")
