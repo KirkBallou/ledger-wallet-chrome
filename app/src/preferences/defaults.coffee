@@ -735,23 +735,23 @@ ledger.preferences.digibyte =
     discoveryGap: 20
 
 
-ledger.preferences.btcprivate =
-      Display:
-        units:
-          bitcoin:
-            symbol: 'BTCP'
-            unit: 8
-          milibitcoin:
-            symbol: 'mBTCP'
-            unit: 5
-
-    # Coin preferences
-    # // todo : no active block explorer for BTCP yet
-      Coin:
-        explorers:
-          cryptoID:
-            name: 'CryptoID'
-            address: 'https://chainz.cryptoid.info/btcp/tx.dws?%s.htm'
-        discoveryGap: 20
+# ledger.preferences.btcprivate =
+#       Display:
+#         units:
+#           bitcoin:
+#             symbol: 'BTCP'
+#             unit: 8
+#           milibitcoin:
+#             symbol: 'mBTCP'
+#             unit: 5
+#
+#     # Coin preferences
+#     # // todo : no active block explorer for BTCP yet
+#       Coin:
+#         explorers:
+#           cryptoID:
+#             name: 'CryptoID'
+#             address: 'https://chainz.cryptoid.info/btcp/tx.dws?%s.htm'
+#         discoveryGap: 20
 
 ledger.preferences.common.setCoin("bitcoin")
