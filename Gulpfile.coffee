@@ -11,7 +11,7 @@ defaultPreferences =
   release: no
   flavors: []
   network: 'bitcoin'
-
+ 
 unless fs.existsSync('./.compilation_preferences.json')
   fs.writeFileSync "./.compilation_preferences.json", JSON.stringify(defaultPreferences)
 
